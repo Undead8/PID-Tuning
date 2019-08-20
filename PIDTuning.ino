@@ -1,19 +1,21 @@
 #include <Wire.h>
-#include <DFRobot_SHT20.h> // https://github.com/DFRobot/DFRobot_SHT20 Default I2C address is 0x40
+#include <DFRobot_SHT20.h> // https://github.com/DFRobot/DFRobot_SHT20
 #include <SerLCD.h> // http://librarymanager/All#SparkFun_SerLCD
 #include <pidautotuner.h> // https://github.com/jackw01/arduino-pid-autotuner
 
-// Tune the following constants
+// Tune using this output target and a specific PID loop interval
 const float TARGET = 20.0;
 const unsigned long LOOP_INTERVAL = 300000;
 
-const int OUTPUT_PIN = 1;
+// Pin constants
+const int OUTPUT_PIN = 3;
 
+// Other variables
 float temperature;
 float humidity;
 
-SerLCD lcd; // Initialize the library with default I2C address 0x72
-DFRobot_SHT20 sht20;
+SerLCD lcd; // Default I2C address is 0x72
+DFRobot_SHT20 sht20; //  Default I2C address is 0x40
 PIDAutotuner tuner = PIDAutotuner();
 
 void setup() {
