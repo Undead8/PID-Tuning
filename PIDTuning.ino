@@ -31,6 +31,9 @@ void setup() {
   // SHT20 - Init 
   sht20.initSHT20();
 
+  // Set pin modes
+  pinMode(OUTPUT_PIN, OUTPUT);
+  
   // Delay to make sure everything is init.
   delay(100);
 
